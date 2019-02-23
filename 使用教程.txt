@@ -1,0 +1,39 @@
+*****使用教程 for Libmanager*****
+*****作者 ： 葛骏（阳泉一中，实际上，本项目中出现的Atlas、ForeverJimmy等名，都是本人网名，为方便，使用IDE的模板自动添加*****
+
+*****项目基本信息*****
+项目名称：Libmanager
+项目用途：图书馆管理系统
+         参与和教育杯信息技术大赛的作品
+项目地址：https://github.com/Forever-Jimmy/Libmanager
+开源？：是
+开发者：葛骏（阳泉一中学生，本项目中出现的Atlas 或者 ForeverJimmy即指本人）
+
+*****使用方法*****
+一、环境配置
+    此步可以跳过，但是不保证稳定性！
+
+    为了稳定，请使用和开发环境一致的python版本！
+
+    方法一：手动配置
+        将 venv\Scripts 放入 Path 变量中
+        可以参考：https://jingyan.baidu.com/article/8ebacdf02d3c2949f65cd5d0.html
+        如果您之前已经配置过python环境，请将之改名即可（以后使用可直接以诸如 python277 的方式进行）
+
+    方法二：自动配置
+        运行项目中的path_deploy.bat批处理文件，如果报错，请使用手动配置的方法。
+
+二、运行server端
+    已经有环境变量
+        1. win + R，键入cmd
+        2. cd到server文件键入
+            python server.py
+          看到如下输出即可：
+
+    没有环境变量
+        直接打开server_run.bat 运行，可能报错！
+
+三、运行client端
+    C# 端：
+
+    python 端：

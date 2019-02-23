@@ -1,0 +1,37 @@
+*****开发者文档 for Libmanager******
+*****作者 ： 葛骏（阳泉一中，实际上，本项目中出现的Atlas、ForeverJimmy等名，都是本人网名，为方便，使用IDE的模板自动添加*****
+
+
+*****架构、文件目录*****
+
+本项目采用Server/Client、三层架构。
+
+Libmanger\  # 项目根目录
+    Client\  # 存储项目的客户端部分
+        LibManager_Client_Csharp\  # C#编写的客户端，具有图形操作界面（GUI），使用winform，只能在Windows操作系统上运行
+        Python_Client\  # Python 编写的客户端，只有命令行界面，理论上可以在全平台运行。不实用，一般只用来调试
+    Server\  # 存储项目的服务端部分
+        model\  # 模型层，数据库交互
+        utility\  # 业务处理层，集成封装数据库交互
+        # 其余文件属于表现层，负责直接与用户交互
+        config.py  # 配置文件
+        Libmanager_server.py  # 服务端主文件
+
+
+    venv\  # Python环境 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03)
+        #  内容物不需要管。
+        ../Scripts/python.exe  是python交互环境，可以直接打开运行python代码
+
+    sqlite\  # sqlite3 数据库命令行工具，用来调试，可以直接exe运行，也可以在终端中运行。
+        # http://www.cnblogs.com/hnrainll/archive/2011/04/22/2024627.html
+        # 上述地址可以找到使用的教程
+    __init__.py  # 这个玩意我不需要介绍
+    path_deploy.bat  # 配置环境变量的脚本
+    server_run.bat  # 直接运行server的脚本
+    使用教程.txt  # 给小白看的的教程
+    开发者文档.txt  # 就是本文件
+
+
+
+
+*****数据库模板*****
