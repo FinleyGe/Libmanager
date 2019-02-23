@@ -33,6 +33,9 @@ class Server():
 
     async def server(self):  # 异步
         self.conn, self.addr = self.s.accept()
+        self.conn.send(do.en_json({
+            'rtv': '1'
+        }))
         data = do.de_json(self.conn.recv(1024))
         print("Connect with : {0}:{1}".format(self.addr[0], self.addr[1]))
         logging.info("Connect with : {0}:{1}".format(self.addr[0], self.addr[1]))

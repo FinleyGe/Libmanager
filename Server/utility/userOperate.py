@@ -9,6 +9,7 @@ class User(db.Users):
         self.rtv={
             "rtv":None
         }
+
     def is_admin(self):
         pass
 
@@ -19,14 +20,30 @@ class User(db.Users):
                 self.rtv["rtv"] = '-2'
             else:
                 if ret[0][PWD] != pwd:
-
-
+                    self.rtv["rtv"] = '-1'
+                elif ret[0][IS_LOGIN] != "0":
+                    self.rtv["rtv"] = '-3'
+                else:
+                    if not self.update("users", "is_login", "1", "id", id):
+                        self.rtv["rtv"] = '0'
+                    else:
+                        self.rtv["rtv"] = '-101'
         elif email:
-            pass
+            ret = self.find("users", "email", email)
+            if not ret:
+                self.rtv["rtv"] = '-2'
+            else:
+                if ret[0][PWD] != pwd:
+                    self.rtv["rtv"] = '-1'
+                elif ret[0][IS_LOGIN] != "0":
+                    self.rtv["rtv"] = '-3'
+                else:
+                    if not self.update("users", "is_login", "1", "email", email):
+                        self.rtv["rtv"] = '0'
+                    else:
+                        self.rtv["rtv"] = '-101'
         else:
-            pass
-
-
+            self.rtv["rtv"] = '-100'
 
     def register(self):
         pass

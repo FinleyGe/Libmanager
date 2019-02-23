@@ -8,15 +8,17 @@
 
 Libmanger\  # 项目根目录
     Client\  # 存储项目的客户端部分
-        LibManager_Client_Csharp\  # C#编写的客户端，具有图形操作界面（GUI），使用winform，只能在Windows操作系统上运行
-        Python_Client\  # Python 编写的客户端，只有命令行界面，理论上可以在全平台运行。不实用，一般只用来调试
+        LibManager_Client_Csharp  # C#编写的客户端，具有图形操作界面（GUI），使用winform，只能在Windows操作系统上运行
+        Python_Client  # Python 编写的客户端，只有命令行界面，理论上可以在全平台运行。不实用，一般只用来调试
     Server\  # 存储项目的服务端部分
         model\  # 模型层，数据库交互
+			database.py  # 提供数据库的操作
         utility\  # 业务处理层，集成封装数据库交互
+			userOperate.py  # 提供用户操作
         # 其余文件属于表现层，负责直接与用户交互
-        config.py  # 配置文件
-        Libmanager_server.py  # 服务端主文件
 
+        Libmanager_server.py  # 服务端主文件
+		config.py  # 配置文件
 
     venv\  # Python环境 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03)
         #  内容物不需要管。
