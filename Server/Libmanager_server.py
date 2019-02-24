@@ -11,17 +11,20 @@ from utility import userOperate as user
 from utility import log
 
 
-class Server():
+class Server(object):
     def login(self, data):
         u = user.User()
         u.login(id=data["id"], email=data["email"], pwd=data["pwd"])
         return u.rtv
 
-    def register(self):
-        u = user.User()
-        u.register()
-        return u.rtv
-
+    def register(self, data):
+        if data["ck_code"] == CK_CODE or data["type"] == "0":
+            u = user.User()
+            u.register(data["name"], data["email"], data["pwd"], data["type"],)
+            return u.rtv
+        else:
+            u.rtv["rtv"] = "-2"
+            return u.rtv
     def logout(self):
         pass
 
@@ -45,17 +48,15 @@ class Server():
             self.conn.send(do.en_json(self.login(data["data"])))
         elif data["type"] == 'register':
             self.conn.send(do.en_json(self.register(data["data"])))
-        elif data["type"] == 'register':
+        elif data["type"] == 'logout':
             self.conn.send(do.en_json(self.logout(data["data"])))
+        elif data["type"] == ""
         else:  # 错误的操作类型
             self.conn.send(do.en_json(
                 {
                     "rtv": "-100"
                 }
             ))
-        self.conn.close()
-        log.log_info("Close connect with : {0}:{1}".format(self.addr[0], self.addr[1]))
-
     def __del__(self):
         log.log_info("Server is closed")
 

@@ -49,8 +49,8 @@ class Database(object):
 
     def find(self, table, item, value):
         ret = self.db.execute("""
-        select * from {0} where {1} = ?
-""".format(table, item), value)
+        select * from {0} where {1} = "{2}"
+        """.format(table, item, value))
         return ret.fetchall()
 
 

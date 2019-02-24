@@ -16,3 +16,29 @@
 2019-02-24 Sunday 11:40:30  log.py : INFO  Connect with : 127.0.0.1:60207
 2019-02-24 Sunday 11:40:42  log.py : INFO  Server is running on 127.0.0.1:8888
 2019-02-24 Sunday 11:40:42  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:09:28  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:09:28  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:09:37  log.py : INFO  Connect with : 127.0.0.1:61530
+2019-02-24 Sunday 14:10:39  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:10:39  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:11:17  log.py : INFO  Connect with : 127.0.0.1:61556
+2019-02-24 Sunday 14:12:27  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:12:27  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:12:29  log.py : INFO  Connect with : 127.0.0.1:61565
+2019-02-24 Sunday 14:13:59  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:13:59  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:14:01  log.py : INFO  Connect with : 127.0.0.1:61628
+2019-02-24 Sunday 14:15:15  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:15:15  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:15:17  log.py : INFO  Connect with : 127.0.0.1:61663
+2019-02-24 Sunday 14:16:36  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:16:36  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:16:38  log.py : INFO  Connect with : 127.0.0.1:61670
+2019-02-24 Sunday 14:20:00  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:20:00  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:20:03  log.py : INFO  Connect with : 127.0.0.1:61806
+2019-02-24 Sunday 14:22:07  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 14:22:07  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 14:22:09  log.py : INFO  Connect with : 127.0.0.1:61836
+2019-02-24 Sunday 14:22:16  log.py : INFO  Database is closed
+2019-02-24 Sunday 14:22:16  log.py : INFO  Close connect with : 127.0.0.1:61836

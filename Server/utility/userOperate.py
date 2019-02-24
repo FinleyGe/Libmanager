@@ -7,8 +7,8 @@ from utility import log
 class User(db.Users):
     def __init__(self):
         super(User,self).__init__()
-        self.rtv={
-            "rtv":None
+        self.rtv = {
+            "rtv": None
         }
 
     def is_admin(self):
@@ -58,7 +58,7 @@ class User(db.Users):
             log.log_error("Wrong Operate Type")
 
     def register(self, name, email, pwd, type):
-        if not self.find("user", "email", email):
+        if not self.find("users", "email", email):
             ret = self.insert(name, email, pwd, type)
             if not ret:
                 self.rtv["rtv"] = '0'

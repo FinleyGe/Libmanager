@@ -34,7 +34,6 @@ def login():
     else:
         return login()
     pwd = md5(input("password:"))
-    data["type"] = "login"
     data["data"] = {
         "id": uid,
         "email": email,
@@ -45,8 +44,27 @@ def login():
 def register():
     name = input("name:")
     email = input("email:")
-    pwd = md5(input("password:").encode())
-    rpwd = md5(input("").encode())
+    pwd = md5(str(input("password:")))
+    rpwd = md5(str(input("password Again:")))
+    type = input("Your UserType.(0 for normal, 1 for admin):")
+    ck_code = None
+    if type == "1":
+        ck_code = input("Check Code(Get it from ServerAdmin):")
+    elif type != "0" and type != "1":
+        print("Wrong Type!")
+        return register()
+    if pwd != rpwd:
+        print("Two passwords is not same!")
+        return register()
+    else:
+        data["data"] = {
+            "name": name,
+            "email": email,
+            "pwd": pwd,
+            "type": type,
+            "ck_code": ck_code
+        }
+
 
 def main():
     '''
@@ -64,6 +82,7 @@ def main():
 
     while True:
         o = input(">:")
+        data["type"] = o
         if o == "help" or o == "?":
             print("""
                     Command         |           Describe
@@ -73,8 +92,11 @@ def main():
             """)
         if o == "login":
             login()
-        elif o=="register":
+        elif o == "register":
             register()
+        else:
+            print("Unknown command. Input help or ? to get help information")
+            continue
         s.send(en_json(data))
         print(de_json(s.recv(1024)))
 

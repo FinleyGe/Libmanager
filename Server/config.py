@@ -20,3 +20,6 @@ BOOK_TYPE = 2
 AMOUNT = 3
 REMAIN = 4
 IS_ABLED = 5
+
+# 管理员注册验证码，可以由管理员（我是指服务器的总管理员）手动更改
+CK_CODE = 'd47244a38419d8d10e778e0f0cd11554'
