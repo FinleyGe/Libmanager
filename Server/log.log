@@ -1,0 +1,18 @@
+2019-02-24 Sunday 10:18:58  log.py : INFO  Server is running.
+2019-02-24 Sunday 10:18:58  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 10:20:31  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 10:20:31  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 10:20:58  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 10:20:58  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 10:21:00  log.py : INFO  Connect with : 127.0.0.1:59331
+2019-02-24 Sunday 10:29:53  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 10:29:53  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 10:29:57  log.py : INFO  Connect with : 127.0.0.1:59483
+2019-02-24 Sunday 10:30:06  log.py : ERROR  Not register Error by 1
+2019-02-24 Sunday 10:30:06  database.py : INFO  Database is closed
+2019-02-24 Sunday 10:30:06  log.py : INFO  Close connect with : 127.0.0.1:59483
+2019-02-24 Sunday 11:40:27  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 11:40:27  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-02-24 Sunday 11:40:30  log.py : INFO  Connect with : 127.0.0.1:60207
+2019-02-24 Sunday 11:40:42  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-02-24 Sunday 11:40:42  selector_events.py : DEBUG  Using selector: SelectSelector

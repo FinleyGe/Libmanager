@@ -2,7 +2,7 @@
 # Creator : 葛骏
 # Overview : 数据库操作文件
 import sqlite3
-import logging
+from utility import log
 
 
 class Database(object):
@@ -19,7 +19,7 @@ class Database(object):
                             is_login integer default 0
                           )
                 """)
-        self.cur.execute("""
+        self.db.execute("""
                 create table if not exists books (
                     id integer primary key autoincrement,
                     name varchar(20) not null ,
@@ -30,12 +30,10 @@ class Database(object):
                 )
         """)
 
-
     def __del__(self):
         self.db.commit()
         self.db.close()
-        logging.info("Database is closed")
-
+        log.log_info("Database is closed")
 
     def delete(self, table, item, value):
         ret = self.db.execute("""
@@ -48,6 +46,7 @@ class Database(object):
                 update {0} set {1} = ? where {2} = ? 
         """.format(table, item, index), (new_value, index_value))
         return ret.fetchall()
+
     def find(self, table, item, value):
         ret = self.db.execute("""
         select * from {0} where {1} = ?

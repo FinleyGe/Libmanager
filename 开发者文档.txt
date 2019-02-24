@@ -15,10 +15,13 @@ Libmanger\  # 项目根目录
 			database.py  # 提供数据库的操作
         utility\  # 业务处理层，集成封装数据库交互
 			userOperate.py  # 提供用户操作
+			data_operate.py  # 提供数据操作
+			log.py  # 提供日志操作
         # 其余文件属于表现层，负责直接与用户交互
-
         Libmanager_server.py  # 服务端主文件
 		config.py  # 配置文件
+		database.db  # sqlite3 数据库
+		log.log  # 日志文件（直接用notepad++打开即可）
 
     venv\  # Python环境 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03)
         #  内容物不需要管。
@@ -28,6 +31,8 @@ Libmanger\  # 项目根目录
         # http://www.cnblogs.com/hnrainll/archive/2011/04/22/2024627.html
         # 上述地址可以找到使用的教程
     __init__.py  # 这个玩意我不需要介绍
+	README.md  # git 自动生成的玩意
+	database.bat  # 数据库交互脚本
     path_deploy.bat  # 配置环境变量的脚本
     server_run.bat  # 直接运行server的脚本
     使用教程.txt  # 给小白看的的教程
@@ -62,6 +67,7 @@ books 书籍
 	is_abled 是否允许借阅*
 	
 *****操作及返回值*****
+1	 成功连接
 -100 错误的操作类型
 -101 数据库其他错误
 -102 服务器其他错误
