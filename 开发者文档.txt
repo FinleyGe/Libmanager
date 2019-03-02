@@ -8,8 +8,7 @@
 
 Libmanger\  # 项目根目录
     Client\  # 存储项目的客户端部分
-        LibManager_Client_Csharp  # C#编写的客户端，具有图形操作界面（GUI），使用winform，只能在Windows操作系统上运行
-        Python_Client  # Python 编写的客户端，只有命令行界面，理论上可以在全平台运行。不实用，一般只用来调试
+        Python_Client  # Python 编写的客户端，只有命令行界面，理论上可以在全平台运行
     Server\  # 存储项目的服务端部分
         model\  # 模型层，数据库交互
 			database.py  # 提供数据库的操作
@@ -22,7 +21,7 @@ Libmanger\  # 项目根目录
 		config.py  # 配置文件
 		database.db  # sqlite3 数据库
 		log.log  # 日志文件（直接用notepad++打开即可）
-
+		__init__.py  # 无需介绍
     venv\  # Python环境 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03)
         #  内容物不需要管。
         ../Scripts/python.exe  是python交互环境，可以直接打开运行python代码
@@ -34,14 +33,18 @@ Libmanger\  # 项目根目录
 	README.md  # git 自动生成的玩意
 	database.bat  # 数据库交互脚本
     path_deploy.bat  # 配置环境变量的脚本
-    server_run.bat  # 直接运行server的脚本
-    使用教程.txt  # 给小白看的的教程
+    run_server.bat  # 直接运行server的脚本
+    run_client.bat  # 直接运行client的脚本
+	使用教程.txt  # 给小白看的的教程
     开发者文档.txt  # 就是本文件
+	.gitattributes  # git 自动生成的玩意
 
 
 
 
 *****数据库模板*****
+带星号的为not null
+
 users 用户
 	id 自增字段
 	name 存储用户名*
@@ -53,41 +56,42 @@ users 用户
 		2 游客，不允许借书
 	book_id 借的书id
 		-1 表示没借
-	book_date 借书时间 时间戳
 	is_login 是否登陆
 		1 是
 		0 否
 
 books 书籍
 	id 自增字段
-	name 书名
-	type 书籍类型*
+	name 书名*
 	amount 书籍总量*
 	remain 剩余书籍量*
 	is_abled 是否允许借阅*
+		1 true
+		0 false
+		
 	
-*****操作及返回值*****
+*****操作,参数及返回值*****
 1	 成功连接
 -100 错误的操作类型
 -101 数据库其他错误
 -102 服务器其他错误
 
-login 登陆
+login 登陆	id email pwd 
 	0 成功
 	-1 密码错误
 	-2 没有注册
 	-3 重复登陆
 	
-register 注册
+register 注册	name email pwd type 
 	0 成功
 	-1 重复的电子邮件地址
 	-2 错误的验证码
 	
-logout 注销
+logout 注销		id 
 	0 成功
 	-1 重复注销
 	
-borrow_book 借书
+borrow_book 借书		id
 	0 成功
 	-1 书籍借光
 	-2 已经借书
@@ -97,28 +101,34 @@ borrow_book 借书
 	-6 没有登陆
 	
 
-return_book 还书
+return_book 还书	id book_id	
 	0 成功
 	-1 无书可还
 	-2 没有登陆
 
-ban_user 封禁用户
+ban_user 封禁用户	id ban_id
 	0 成功
 	-1 错误的id
 	-2 已经被封禁
+	-3 不是管理员
+	-4 没有登陆
 	
-ban_book 封禁书籍
+ban_book 封禁书籍	id book_id
 	0 成功
 	-1 错误的id
 	-2 已经被封禁
+	-3 没有登陆
+	-4 不是管理员
 	
-add_book 添加书籍（收藏量）
+add_book 添加书籍（收藏量)	id book_id book_amount
 	0 成功
 	-1 错误的id
+	-2 没有登陆
+	-3 不是管理员
 	
-add_new_book 添加新书籍
+add_new_book 添加新书籍		id book_name book_amount is_abled
 	0 成功
+	-1 没有登陆
+	-2 不是管理员
 	
-delete_book 删除书籍
-	0 成功
-	-1 错误的id
+checkbooks	打印所有书籍

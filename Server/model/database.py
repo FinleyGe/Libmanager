@@ -8,25 +8,24 @@ from utility import log
 class Database(object):
     def __init__(self):
         self.db = sqlite3.connect("database.db")
-        self.db.execute("""create table if not exists users(
-                            id integer primary key autoincrement,
-                            name varchar(20) not null ,
-                            email varchar UNIQUE not null,
-                            pwd varchar not null,
-                            type integer default 2,
-                            book_id integer default -1,
-                            book_date integer,
-                            is_login integer default 0
-                          )
+        self.db.execute("""
+                create table if not exists users(
+                    id integer primary key autoincrement,
+                    name varchar(20) not null ,
+                    email varchar UNIQUE not null,
+                    pwd varchar not null,
+                    type varchar default "2",
+                    book_id varchar default "-1",
+                    is_login varchar default "0"
+                  )
                 """)
         self.db.execute("""
                 create table if not exists books (
                     id integer primary key autoincrement,
                     name varchar(20) not null ,
-                    type integer default 0,
-                    amount integer not null ,
-                    remain integer not null ,
-                    is_abled integer default 1
+                    amount varchar not null ,
+                    remain varchar not null ,
+                    is_abled varchar default "1"
                 )
         """)
 
@@ -53,6 +52,14 @@ class Database(object):
         """.format(table, item, value))
         return ret.fetchall()
 
+    def findall(self):
+        ret = self.db.execute(
+            """
+                  select * from books
+            """
+        )
+        return ret.fetchall()
+
 
 class Users(Database):
     def insert(self, name, email, pwd, type):
@@ -63,9 +70,8 @@ class Users(Database):
 
 
 class Books(Database):
-    def insert(self, name, type, amount, remain, is_abled):
+    def insert(self, name, amount, is_abled):
         ret = self.db.execute("""
-                insert into books (name,type,amount,remain,is_abled) values (?,?,?,?,?)
-        """, (name, type, amount, remain, is_abled))
+                insert into books (name,amount,remain,is_abled) values (?,?,?,?)
+        """, (name, amount, amount, is_abled))
         return ret.fetchall()
-

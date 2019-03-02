@@ -35,6 +35,8 @@
         直接打开server_run.bat 运行，可能报错！
 
 三、运行client端
-    C# 端：
-
     python 端：
+		已经有环境变量
+			cmd中运行 python_client
+		没有环境变量
+			运行 run_client.bat

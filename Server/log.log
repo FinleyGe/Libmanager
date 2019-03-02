@@ -1,44 +1,314 @@
-2019-02-24 Sunday 10:18:58  log.py : INFO  Server is running.
-2019-02-24 Sunday 10:18:58  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 10:20:31  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 10:20:31  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 10:20:58  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 10:20:58  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 10:21:00  log.py : INFO  Connect with : 127.0.0.1:59331
-2019-02-24 Sunday 10:29:53  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 10:29:53  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 10:29:57  log.py : INFO  Connect with : 127.0.0.1:59483
-2019-02-24 Sunday 10:30:06  log.py : ERROR  Not register Error by 1
-2019-02-24 Sunday 10:30:06  database.py : INFO  Database is closed
-2019-02-24 Sunday 10:30:06  log.py : INFO  Close connect with : 127.0.0.1:59483
-2019-02-24 Sunday 11:40:27  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 11:40:27  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 11:40:30  log.py : INFO  Connect with : 127.0.0.1:60207
-2019-02-24 Sunday 11:40:42  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 11:40:42  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:09:28  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:09:28  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:09:37  log.py : INFO  Connect with : 127.0.0.1:61530
-2019-02-24 Sunday 14:10:39  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:10:39  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:11:17  log.py : INFO  Connect with : 127.0.0.1:61556
-2019-02-24 Sunday 14:12:27  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:12:27  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:12:29  log.py : INFO  Connect with : 127.0.0.1:61565
-2019-02-24 Sunday 14:13:59  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:13:59  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:14:01  log.py : INFO  Connect with : 127.0.0.1:61628
-2019-02-24 Sunday 14:15:15  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:15:15  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:15:17  log.py : INFO  Connect with : 127.0.0.1:61663
-2019-02-24 Sunday 14:16:36  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:16:36  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:16:38  log.py : INFO  Connect with : 127.0.0.1:61670
-2019-02-24 Sunday 14:20:00  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:20:00  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:20:03  log.py : INFO  Connect with : 127.0.0.1:61806
-2019-02-24 Sunday 14:22:07  log.py : INFO  Server is running on 127.0.0.1:8888
-2019-02-24 Sunday 14:22:07  selector_events.py : DEBUG  Using selector: SelectSelector
-2019-02-24 Sunday 14:22:09  log.py : INFO  Connect with : 127.0.0.1:61836
-2019-02-24 Sunday 14:22:16  log.py : INFO  Database is closed
-2019-02-24 Sunday 14:22:16  log.py : INFO  Close connect with : 127.0.0.1:61836
+2019-03-02 Saturday 21:49:09  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 21:49:09  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 22:53:46  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 22:53:46  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 22:53:48  log.py : INFO  Connect with : 127.0.0.1:65367
+2019-03-02 Saturday 22:55:00  log.py : ERROR  [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+2019-03-02 Saturday 22:55:05  log.py : INFO  Connect with : 127.0.0.1:65384
+2019-03-02 Saturday 22:55:33  log.py : INFO  Database is closed
+2019-03-02 Saturday 22:55:47  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 22:55:47  log.py : INFO  Database is closed
+2019-03-02 Saturday 22:57:38  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 22:57:38  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 22:57:45  log.py : INFO  Connect with : 127.0.0.1:65419
+2019-03-02 Saturday 22:57:54  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 22:57:54  log.py : INFO  Database is closed
+2019-03-02 Saturday 22:58:38  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 22:58:38  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 22:58:42  log.py : INFO  Connect with : 127.0.0.1:65437
+2019-03-02 Saturday 22:58:54  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 22:58:54  log.py : INFO  Database is closed
+2019-03-02 Saturday 22:59:50  log.py : ERROR  [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+2019-03-02 Saturday 22:59:57  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 22:59:57  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:00:00  log.py : INFO  Connect with : 127.0.0.1:65488
+2019-03-02 Saturday 23:00:08  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 23:00:08  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:12:20  log.py : ERROR  [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+2019-03-02 Saturday 23:13:33  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:13:33  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:13:35  log.py : INFO  Connect with : 127.0.0.1:49570
+2019-03-02 Saturday 23:13:43  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 23:13:43  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:14:56  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:14:56  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:14:57  log.py : INFO  Connect with : 127.0.0.1:49593
+2019-03-02 Saturday 23:15:03  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 23:15:03  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:16:25  log.py : ERROR  [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+2019-03-02 Saturday 23:16:39  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:16:39  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:16:42  log.py : INFO  Connect with : 127.0.0.1:49685
+2019-03-02 Saturday 23:16:49  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 23:16:49  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:17:40  log.py : ERROR  [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+2019-03-02 Saturday 23:17:41  log.py : INFO  Connect with : 127.0.0.1:49693
+2019-03-02 Saturday 23:17:53  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:17:53  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:17:55  log.py : INFO  Connect with : 127.0.0.1:49697
+2019-03-02 Saturday 23:18:01  log.py : ERROR  Replicate login Error by 123123
+2019-03-02 Saturday 23:18:01  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:18:43  log.py : ERROR  [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+2019-03-02 Saturday 23:18:43  log.py : INFO  Connect with : 127.0.0.1:49707
+2019-03-02 Saturday 23:18:49  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:18:49  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:18:50  log.py : INFO  Connect with : 127.0.0.1:49710
+2019-03-02 Saturday 23:18:56  log.py : INFO  Success by 123123
+2019-03-02 Saturday 23:18:56  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:18:56  log.py : ERROR  Expecting value: line 1 column 1 (char 0)
+2019-03-02 Saturday 23:20:40  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:20:40  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:20:44  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:20:44  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:20:46  log.py : INFO  Connect with : 127.0.0.1:49741
+2019-03-02 Saturday 23:20:51  log.py : INFO  Success by 123123
+2019-03-02 Saturday 23:20:51  log.py : ERROR  'str' object does not support item assignment
+2019-03-02 Saturday 23:22:44  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:22:44  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:22:47  log.py : INFO  Connect with : 127.0.0.1:49799
+2019-03-02 Saturday 23:22:56  log.py : INFO  Success by 123123
+2019-03-02 Saturday 23:26:44  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:26:44  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:26:47  log.py : INFO  Connect with : 127.0.0.1:49849
+2019-03-02 Saturday 23:26:52  log.py : INFO  Success by 123123
+2019-03-02 Saturday 23:26:52  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:27:05  log.py : INFO  Success by 123123
+2019-03-02 Saturday 23:27:05  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:39:22  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:39:22  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:39:25  log.py : INFO  Connect with : 127.0.0.1:50056
+2019-03-02 Saturday 23:39:52  log.py : INFO  Success by 123123
+2019-03-02 Saturday 23:39:52  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:40:03  log.py : INFO  Success by 123123
+2019-03-02 Saturday 23:40:03  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:41:38  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:41:38  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:41:41  log.py : INFO  Connect with : 127.0.0.1:50078
+2019-03-02 Saturday 23:41:48  log.py : ERROR  Not register Error by 123123
+2019-03-02 Saturday 23:41:48  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:41:58  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:41:58  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:42:00  log.py : INFO  Connect with : 127.0.0.1:50081
+2019-03-02 Saturday 23:42:14  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:42:28  log.py : INFO  Success by 123
+2019-03-02 Saturday 23:42:28  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:42:33  log.py : INFO  Success by 123
+2019-03-02 Saturday 23:42:33  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:44:24  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:44:24  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:44:26  log.py : INFO  Connect with : 127.0.0.1:50103
+2019-03-02 Saturday 23:44:39  log.py : INFO  Success by 123
+2019-03-02 Saturday 23:44:39  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:44:49  log.py : ERROR  Not register Error by 123123
+2019-03-02 Saturday 23:44:49  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:45:04  log.py : INFO  Success by 1
+2019-03-02 Saturday 23:45:04  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:46:08  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:46:08  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:46:12  log.py : INFO  Connect with : 127.0.0.1:50179
+2019-03-02 Saturday 23:46:18  log.py : INFO  Success by 123
+2019-03-02 Saturday 23:46:18  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:47:38  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:47:38  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:47:39  log.py : INFO  Connect with : 127.0.0.1:50190
+2019-03-02 Saturday 23:47:57  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:48:03  log.py : INFO  Success by 123
+2019-03-02 Saturday 23:48:03  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:48:14  log.py : ERROR  Replicate login Error by 123
+2019-03-02 Saturday 23:48:14  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:49:02  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:49:02  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:49:06  log.py : INFO  Connect with : 127.0.0.1:50216
+2019-03-02 Saturday 23:49:13  log.py : ERROR  Replicate login Error by 123
+2019-03-02 Saturday 23:49:13  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:49:27  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:49:27  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:52:29  log.py : INFO  Connect with : 127.0.0.1:50388
+2019-03-02 Saturday 23:52:57  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:52:57  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:53:01  log.py : INFO  Connect with : 127.0.0.1:50396
+2019-03-02 Saturday 23:53:06  log.py : INFO  Success by 1
+2019-03-02 Saturday 23:53:06  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:53:42  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:53:42  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:54:32  log.py : INFO  Connect with : 127.0.0.1:50416
+2019-03-02 Saturday 23:54:42  log.py : INFO  Success by 123
+2019-03-02 Saturday 23:54:42  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:54:58  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:54:58  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:55:18  log.py : INFO  Connect with : 127.0.0.1:50435
+2019-03-02 Saturday 23:55:24  log.py : ERROR  Replicate login Error by 123
+2019-03-02 Saturday 23:55:24  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:55:37  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:55:37  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:55:41  log.py : INFO  Connect with : 127.0.0.1:50442
+2019-03-02 Saturday 23:55:52  log.py : INFO  Success by 1
+2019-03-02 Saturday 23:55:52  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:57:57  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:57:57  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:58:04  log.py : INFO  Connect with : 127.0.0.1:50467
+2019-03-02 Saturday 23:59:15  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-02 Saturday 23:59:15  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-02 Saturday 23:59:18  log.py : INFO  Connect with : 127.0.0.1:50486
+2019-03-02 Saturday 23:59:27  log.py : INFO  Database is closed
+2019-03-02 Saturday 23:59:35  log.py : INFO  Success by 1
+2019-03-02 Saturday 23:59:35  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:01:12  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:01:12  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:01:15  log.py : INFO  Connect with : 127.0.0.1:50508
+2019-03-03 Sunday 00:01:22  log.py : ERROR  Replicate login Error by 1
+2019-03-03 Sunday 00:01:22  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:01:50  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:01:50  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:01:54  log.py : INFO  Connect with : 127.0.0.1:50521
+2019-03-03 Sunday 00:02:05  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:02:10  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:02:10  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:04:43  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:04:43  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:04:52  log.py : INFO  Connect with : 127.0.0.1:50634
+2019-03-03 Sunday 00:04:58  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:05:03  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:05:04  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:07:18  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:07:18  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:07:37  log.py : INFO  Connect with : 127.0.0.1:50816
+2019-03-03 Sunday 00:07:42  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:07:42  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:09:15  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:09:15  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:09:18  log.py : INFO  Connect with : 127.0.0.1:50901
+2019-03-03 Sunday 00:09:24  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:09:24  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:09:56  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:09:56  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:09:58  log.py : INFO  Connect with : 127.0.0.1:50915
+2019-03-03 Sunday 00:10:06  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:10:06  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:11:33  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:11:33  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:11:36  log.py : INFO  Connect with : 127.0.0.1:50937
+2019-03-03 Sunday 00:11:41  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:11:41  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:11:45  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:12:55  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:12:55  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:12:58  log.py : INFO  Connect with : 127.0.0.1:50950
+2019-03-03 Sunday 00:13:02  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:13:03  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:13:06  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:14:48  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:14:48  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:14:51  log.py : INFO  Connect with : 127.0.0.1:50966
+2019-03-03 Sunday 00:14:55  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:14:55  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:15:01  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:16:19  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:16:19  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:16:26  log.py : INFO  Connect with : 127.0.0.1:51051
+2019-03-03 Sunday 00:16:31  log.py : ERROR  Not register Error by a
+2019-03-03 Sunday 00:16:31  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:16:36  log.py : ERROR  Not register Error by a
+2019-03-03 Sunday 00:16:36  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:16:42  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:16:42  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:16:45  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:16:53  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:16:54  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:20:12  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:20:47  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:20:57  log.py : INFO  Success by aa
+2019-03-03 Sunday 00:20:57  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:24:23  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:24:23  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:24:27  log.py : INFO  Connect with : 127.0.0.1:51173
+2019-03-03 Sunday 00:24:43  log.py : INFO  Success by aa
+2019-03-03 Sunday 00:24:43  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:27:36  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:27:36  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:27:39  log.py : INFO  Connect with : 127.0.0.1:51214
+2019-03-03 Sunday 00:27:56  log.py : INFO  Success by aa
+2019-03-03 Sunday 00:27:57  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:31:10  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:31:10  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:31:13  log.py : INFO  Connect with : 127.0.0.1:51248
+2019-03-03 Sunday 00:31:20  log.py : ERROR  Wrong Password Error by a
+2019-03-03 Sunday 00:31:20  log.py : INFO  Success by a
+2019-03-03 Sunday 00:31:20  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:31:28  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:31:48  log.py : INFO  Success by aa
+2019-03-03 Sunday 00:31:48  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:34:17  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:34:17  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:34:20  log.py : INFO  Connect with : 127.0.0.1:51288
+2019-03-03 Sunday 00:34:28  log.py : ERROR  Not register Error by a
+2019-03-03 Sunday 00:34:28  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:34:34  log.py : ERROR  Wrong Password Error by 1
+2019-03-03 Sunday 00:34:34  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:34:34  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:35:40  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:35:40  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:35:50  log.py : INFO  Connect with : 127.0.0.1:51313
+2019-03-03 Sunday 00:35:58  log.py : ERROR  Wrong Password Error by 1
+2019-03-03 Sunday 00:35:58  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:36:02  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:36:02  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:38:46  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:38:46  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:38:52  log.py : INFO  Connect with : 127.0.0.1:51410
+2019-03-03 Sunday 00:38:59  log.py : ERROR  Wrong Password Error by a
+2019-03-03 Sunday 00:38:59  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:39:03  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:39:03  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:41:16  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:41:16  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:41:18  log.py : INFO  Connect with : 127.0.0.1:51437
+2019-03-03 Sunday 00:41:23  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:41:23  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:43:38  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:43:38  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:43:54  log.py : INFO  Connect with : 127.0.0.1:51461
+2019-03-03 Sunday 00:45:22  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:45:22  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:45:26  log.py : INFO  Connect with : 127.0.0.1:51473
+2019-03-03 Sunday 00:45:33  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:45:33  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:46:58  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:46:58  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:47:00  log.py : INFO  Connect with : 127.0.0.1:51554
+2019-03-03 Sunday 00:47:08  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:47:08  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:47:13  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:47:20  log.py : ERROR  Wrong Password Error by 2
+2019-03-03 Sunday 00:47:20  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:47:25  log.py : INFO  Success by 2
+2019-03-03 Sunday 00:47:25  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:48:52  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:48:52  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:48:54  log.py : INFO  Connect with : 127.0.0.1:51575
+2019-03-03 Sunday 00:49:00  log.py : INFO  Success by 2
+2019-03-03 Sunday 00:49:00  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:49:08  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:49:08  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:50:33  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:50:33  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:50:37  log.py : INFO  Connect with : 127.0.0.1:51670
+2019-03-03 Sunday 00:50:43  log.py : INFO  Success by a
+2019-03-03 Sunday 00:50:43  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:50:48  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:51:07  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:53:12  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:54:48  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:54:48  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:54:56  log.py : INFO  Connect with : 127.0.0.1:51799
+2019-03-03 Sunday 00:55:06  log.py : INFO  Success by 1
+2019-03-03 Sunday 00:55:06  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:55:10  log.py : INFO  Database is closed
+2019-03-03 Sunday 00:55:51  log.py : INFO  Connect with : 127.0.0.1:51804
+2019-03-03 Sunday 00:57:56  log.py : INFO  Server is running on 127.0.0.1:8888
+2019-03-03 Sunday 00:57:56  selector_events.py : DEBUG  Using selector: SelectSelector
+2019-03-03 Sunday 00:57:57  log.py : INFO  Connect with : 127.0.0.1:51837
+2019-03-03 Sunday 00:58:00  log.py : INFO  Disconnect with : 127.0.0.1:51837
+2019-03-03 Sunday 00:58:03  log.py : INFO  Connect with : 127.0.0.1:51838
+2019-03-03 Sunday 00:58:06  log.py : INFO  Disconnect with : 127.0.0.1:51838
+2019-03-03 Sunday 00:58:10  log.py : INFO  Connect with : 127.0.0.1:51839

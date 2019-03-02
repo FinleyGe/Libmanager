@@ -9,6 +9,7 @@ data = {
     "data": {}
 }
 
+
 def de_json(data):  # 解json
     return json.loads(str(data, "utf-8"))
 
@@ -22,27 +23,14 @@ def md5(data):  # md5加密
     h.update(data.encode())
     return h.hexdigest()
 
+
 class client(object):
-    def logout(self):
-        if not self.is_login:
-            print("You are not logged!")
-            return -2
-
-        data["data"] = {
-            "type": "logout",
-            "data": {
-                self.userdata
-            }
-
-        }
-
 
     def close(self):
         data["data"] = {
             "type": "close"
         }
         self.s.send(en_json(data))
-
 
     def login(self):
         o = input("Input 1 to use id or 2 to use email >:")
@@ -62,11 +50,7 @@ class client(object):
         }
         self.s.send(en_json(data))
         rtv = de_json(self.s.recv(1024))
-        if rtv["rtv"] == "0":
-            print("Login Succeed!")
-            self.userdata = rtv["rtv"]["data"]
-            return 0
-        elif rtv["rtv"] == "-1":
+        if rtv["rtv"] == "-1":
             print("Wrong Password!")
             return self.login()
         elif rtv["rtv"] == "-2":
@@ -76,8 +60,10 @@ class client(object):
             print("Replicate Login")
             return 0
         else:
-            return rtv
-
+            print("Login Succeed!")
+            self.userdata = rtv["rtv"]
+            print(self.userdata)
+            return 0
 
     def register(self):
         name = input("name:")
@@ -116,8 +102,199 @@ class client(object):
         else:
             return rtv
 
+    def logout(self):
+        if not self.is_login:
+            print("You are not logged!")
+            return -2
+        data["data"] = {
+                "id": self.userdata[0]
+            }
+        self.s.send(en_json(data))
+        rtv = de_json(self.s.recv(1024))
+        print(rtv)
+        if rtv["rtv"] == "0":
+            print("Logout!")
+            self.is_login = False
+        else:
+            print("Failed to Logout")
 
+    def borrow_book(self):
+        book_id = input("Book ID : ")
+        if not book_id:
+            return -1
+        else:
+            data["data"] ={
+                "id": self.userdata[0],
+                "book_id": book_id
+            }
+        self.s.send(en_json(data))
+        ret = de_json(self.s.recv(1024))["rtv"]
+        if ret == "0":
+            print("Success")
+            return 0
+        elif ret == "-1":
+            print("Book {} is run out".format(book_id))
+            return -1
+        elif ret == "-2":
+            print("You had been borrowed a book")
+            return -1
+        elif ret == "-3":
+            print("You are not allowed to borrow a book")
+            return -1
+        elif ret == "-4":
+            print("No book id : {}".format(book_id))
+        elif ret == "-5":
+            print("This book ({}) is not allowed to borrow".format(book_id))
+        elif ret == "-6":
+            print("You are not login!")
 
+    def return_book(self):
+        if self.is_login:
+            data["data"] = {
+                "id": self.userdata[0],
+            }
+            self.s.send(en_json(data))
+            rtv = de_json(self.s.recv(1024))["rtv"]
+            if rtv == "0":
+                print("Success")
+                return 0
+            elif rtv == "-1":
+                print("You have nothing to return")
+                return -1
+            elif rtv == "-2":
+                print("You are not login")
+                return -1
+        else:
+            print("You are not login")
+            return -1
+
+    def ban_user(self):
+        if self.is_login:
+            id = input("Ban User id : ")
+            data["data"] = {
+                "id": self.userdata[0],
+                "ban_id": id
+            }
+            self.s.send(en_json(data))
+            rtv = de_json(self.s.recv(1024))["rtv"]
+            if rtv == "0":
+                print("Success")
+                return 0
+            elif rtv == "-1":
+                print("A wrong id {}".format(id))
+                return -1
+            elif rtv == "-2":
+                print("The user has been already banned !")
+                return -1
+            elif rtv == "-3":
+                print("You are not login")
+                return -1
+            elif rtv == "-4":
+                print("You are not admin!")
+                return -1
+        else:
+            print("You are not login")
+            return -1
+
+    def ban_book(self):
+        if self.is_login:
+            id = input("Ban Book id : ")
+            data["data"] = {
+                "id": self.userdata[0],
+                "book_id": id
+            }
+            self.s.send(en_json(data))
+            ret = de_json(self.s.recv(1024))["rtv"]
+            if ret == "0":
+                print("Success")
+                return 0
+            elif ret == "-1":
+                print("A wrong id {}".format(id))
+                return -1
+            elif ret == "-2":
+                print("The user has been already banned !")
+                return -1
+            elif ret == "-3":
+                print("You are not login")
+                return -1
+            elif ret == "-4":
+                print("You are not admin!")
+                return -1
+        else:
+            print("You are not login")
+            return -1
+
+    def add_book(self):
+        if self.is_login:
+            id = input("Book id : ")
+            amount = input("how many (int) :")
+            data["data"] = {
+                "id": self.userdata[0],
+                "book_id": id,
+                "book_amount": amount
+            }
+            self.s.send(en_json(data))
+            ret = de_json(self.s.recv(1024))["rtv"]
+            if ret == "0":
+                print("Success")
+                return 0
+            elif ret == "-1":
+                print("A wrong id {}".format(id))
+                return -1
+            elif ret == "-2":
+                print("You are not login")
+                return -1
+            elif ret == "-3":
+                print("You are not admin!")
+                return -1
+        else:
+            print("You are not login")
+            return -1
+
+    def add_new_book(self):
+        if self.is_login:
+            name = input("Book Name: ")
+            amount = input("how many (int) :")
+            data["data"] = {
+                "id": self.userdata[0],
+                "book_amount": amount,
+                "book_name": name,
+                "is_abled":1
+            }
+            self.s.send(en_json(data))
+            ret = de_json(self.s.recv(1024))["rtv"]
+            if ret == "0":
+                print("Success")
+                return 0
+            elif ret == "-1":
+                print("You are not login")
+                return -1
+            elif ret == "-2":
+                print("You are not admin!")
+                return -1
+        else:
+            print("You are not login")
+            return -1
+
+    def print_detail(self):
+        if self.is_login:
+            print("""
+            ID : {0}
+            Name: {1}
+            Email : {2}
+            type : {3} (0 for normal, 1 for admin, 2 for vistor)
+            borrowing : {4}
+            """.format(self.userdata[0], self.userdata[1], self.userdata[2], self.userdata[4], self.userdata[5]))
+            return 0
+        else:
+            print("You are not login")
+            return -1
+
+    def checkbooks(self):
+        self.s.send(en_json(data))
+        ret = de_json(self.s.recv(1024))["rtv"]
+        for i in ret:
+            print(i)
     def __init__(self):
         '''
         ip = input("Server IP:")
@@ -139,14 +316,34 @@ class client(object):
             data["type"] = o
             if o == "help" or o == "?":
                 print("""
+                
+                        Because of CMD's strange code(It usually uses GBK, but I usually use utf-8)
+                        I must use English to Write this and all of the message.
+                        Please Dont laugh at my inapt English!
+                        
                         Command         |           Describe
+                                        |
                         help/?          |           Print help message
                         login           |           Login
                         exit            |           Logout if login and Exit the Client
                         register        |           Register
                         logout          |           Logout
+                        checkbooks      |           Print all books' infomation
+                        borrow_book     |           borrow a book
+                        return_book     |           Return a book
+                        ban_user        |           ban a user by id. Only admin
+                        ban_book        |           ban a book by id. Only admin
+                        add_book        |           add a book's amount
+                        add_new_book    |           add a new book
+                        print_user      |           Print your detail
                 """)
-            if o == "login":
+            elif o == "exit":
+                if self.is_login:
+                    self.logout()
+                self.close()
+                print("Dicconnect")
+                exit()
+            elif o == "login":
                 rtv = self.login()
                 if rtv == 0:
                     self.is_login = True
@@ -155,11 +352,24 @@ class client(object):
                 rtv = self.register()
                 if rtv == 0:
                     continue
-
-            elif o == "exit":
-                if self.is_login:
-                    self.logout()
-                self.close()
+            elif o == "logout":
+                self.logout()
+            elif o == "checkbooks":
+                self.checkbooks()
+            elif o == "borrow_book":
+                self.borrow_book()
+            elif o == "return_book":
+                self.return_book()
+            elif o == "ban_user":
+                self.ban_user()
+            elif o == "ban_book":
+                self.ban_book()
+            elif o == "add_book":
+                self.add_book()
+            elif o == "add_new_book":
+                self.add_new_book()
+            elif o == "print_user":
+                self.print_detail()
             else:
                 print("Unknown command. Input help or ? to get help information")
                 continue

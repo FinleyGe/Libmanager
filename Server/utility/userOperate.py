@@ -4,59 +4,69 @@
 from model import database as db
 from config import *
 from utility import log
+
+
 class User(db.Users):
     def __init__(self):
-        super(User,self).__init__()
+        super(User, self).__init__()
         self.rtv = {
-            "rtv": None
+            "rtv": str()
         }
 
     def is_login(self, id):
-        user = self.find("users", "id", id)
+        user = self.find("users", "id", id)[0]
         if user[IS_LOGIN] == "0":
             return False
         else:
             return True
 
-    def is_admin(self):
-        pass
+    def is_admin(self, id):
+        user = self.find("users", "id", id)[0]
+        if user[TYPE] == "1":
+            return True
+        else:
+            return False
 
     def login(self, pwd, id=None, email=None):
-        if id:
-            ret = self.find("users", "id", id)
+        if id != None:
+            ret = self.find("users", "id", id)[0]
             if not ret:
                 self.rtv["rtv"] = '-2'
                 log.log_error("Not register Error by {}".format(id))
             else:
-                if ret[0][PWD] != pwd:
+                if ret[PWD] != pwd:
                     self.rtv["rtv"] = '-1'
                     log.log_error("Wrong Password Error by {}".format(id))
-                elif ret[0][IS_LOGIN] != "0":
+                    return 0
+                if ret[IS_LOGIN] == "1":
                     self.rtv["rtv"] = '-3'
                     log.log_error("Replicate login Error by {}".format(id))
                 else:
                     if not self.update("users", "is_login", "1", "id", id):
-                        self.rtv["rtv"] = '0'
-                        self.rtv["rtv"]["data"] = ret
+                        self.rtv["rtv"] = ret
                         log.log_info("Success by {}".format(id))
                     else:
                         self.rtv["rtv"] = '-101'
                         log.log_error("Other Error from Database")
-        elif email:
-            ret = self.find("users", "email", email)
+
+        elif email != None:
+            ret = self.find("users", "email", email)[0]
             if not ret:
                 self.rtv["rtv"] = '-2'
                 log.log_error("Not register Error by {}".format(email))
             else:
-                if ret[0][PWD] != pwd:
+                print(ret)
+                if ret[PWD] != pwd:
                     self.rtv["rtv"] = '-1'
                     log.log_error("Wrong Password Error by {}".format(email))
-                elif ret[0][IS_LOGIN] != "0":
+                    return 0
+                if ret[IS_LOGIN] == "1":
+                    print("-3")
                     self.rtv["rtv"] = '-3'
                     log.log_error("Replicate login Error by {}".format(email))
                 else:
                     if not self.update("users", "is_login", "1", "email", email):
-                        self.rtv["rtv"] = '0'
+                        self.rtv["rtv"] = ret
                         log.log_info("Success by {}".format(email))
                     else:
                         self.rtv["rtv"] = '-101'
@@ -66,7 +76,7 @@ class User(db.Users):
             log.log_error("Wrong Operate Type")
 
     def register(self, name, email, pwd, type):
-        if not self.find("users", "email", email):
+        if not self.find("users", "email", email)[0]:
             ret = self.insert(name, email, pwd, type)
             if not ret:
                 self.rtv["rtv"] = '0'
@@ -77,8 +87,9 @@ class User(db.Users):
             self.rtv["rtv"] = '-1'
             log.log_error("replicate email address by {}".format(email))
 
-    def logout(self, id,):
-        ret = self.find("users", "id", id)
+    def logout(self, id):
+        ret = self.find("users", "id", int(id))[0]
+        print(ret)
         if ret:
             if ret[IS_LOGIN] == "0":
                 self.rtv["rtv"] = "-1"
@@ -89,14 +100,14 @@ class User(db.Users):
                     self.rtv["rtv"] = "101"
 
     def borrow_book(self, uid, book_id):
-        book = self.find("books", "id", book_id)
-        user = self.find("users", "id", uid)
+        book = self.find("books", "id", book_id)[0]
+        user = self.find("users", "id", uid)[0]
         if self.is_login(uid):
             if book:
-                if int(book[REMAIN]) >= 1:
+                if int(book[BOOK_REMAIN]) >= 1:
                     if user[TYPE] == "0" or user[TYPE] == "1":
-                        if user[BOOK_ID] == "-1":
-                            self.update("books", "remain", str(int(book[REMAIN]) - 1), "id", book_id)
+                        if user[BORROW_ID] == "-1":
+                            self.update("books", "remain", str(int(book[BOOK_REMAIN]) - 1), "id", book_id)
                             self.rtv["rtv"] = "0"
                         else:
                             self.rtv["rtv"] = "-2"
@@ -109,34 +120,83 @@ class User(db.Users):
         else:
             self.rtv["rtv"] = "-6"
 
-    def return_book(self, uid, book_id):
-        user = self.find("users", "id", uid)
-        book_id = self.find("books", "id", book_id)
+    def return_book(self, uid):
+        user = self.find("users", "id", uid)[0]
         if self.is_login(uid):
-            if user[BOOK_ID] != "-1":
-                if self.update("books", "remain", book_id[REMAIN] + 1, "id", book_id):
+            if user[BORROW_ID] != "-1":
+                book_id = self.find("books", "id", user[BORROW_ID])[0]
+                if self.update("books", "remain", book_id[BOOK_REMAIN] + 1, "id", book_id):
                     self.rtv["rtv"] = "0"
                 else:
-                    self.rtv["rtv"] = "-100"
+                    self.rtv["rtv"] = "-101"
             else:
                 self.rtv["rtv"] = "-1"
         else:
             self.rtv["rtv"] = "-2"
 
-    def ban_user(self):
-        pass
+    def ban_user(self, id, ban_id ):
+        user1 = self.find("users", "id", id)[0]
+        user2 = self.find("users", "id", ban_id)[0]
+        if self.is_admin(id):
+            if self.is_login(id):
+                if user2:
+                    if user2[TYPE] == "2":
+                        self.rtv["rtv"] = "-2"
+                        return
+                    if not self.update("users", "type", "2", "id", ban_id):
+                        self.rtv["rtv"] = "0"
+                    else:
+                        self.rtv["rtv"] = "-101"
+                else:
+                    self.rtv["rtv"] = "-1"
+            else:
+                self.rtv["rtv"] = "-4"
+        else:
+            self.rtv["rtv"] = "-3"
 
-    def ban_book(self):
-        pass
+    def ban_book(self, id, book_id):
+        book = self.find("books", "id", book_id)[0]
+        if self.is_login(id):
+            if book[IS_ABLED]:
+                if self.update("books", "is_abled", "1", "id", book_id):
+                    self.rtv["rtv"] = "0"
+                else:
+                    self.rtv["rtv"] = "-101"
+            else:
+                self.rtv["rtv"] = "-2"
+        else:
+            self.rtv["rtv"] = "-3"
 
-    def add_book(self):
-        pass
+    def add_book(self, id, book_id, amount):
+        user = self.find("users", "id", id)[0]
+        book = self.find("books", "id", book_id)[0]
+        if self.is_login(id):
+            if self.is_admin(id):
+                if book:
+                    if self.update("books", "amount", str(int(book[BOOK_AMOUNT]) + amount), "id", book_id):
+                        self.rtv["rtv"] = "0"
+                    else:
+                        self.rtv["rtv"] = "-101"
+                else:
+                    self.rtv["rtv"] = "-1"
+            else:
+                self.rtv["rtv"] = "-3"
+        else:
+            self.rtv["rtv"] = "-2"
 
-    def add_new_book(self):
-        pass
+    def add_new_book(self, id, book_name, book_amount, is_abled=0):
+        user = self.find("users", "id", id)[0]
+        if self.is_login(id):
+            if self.is_admin(id):
+                b = db.Books()
+                if not b.insert(book_name, book_amount, is_abled):
+                    self.rtv["rtv"] = "0"
+                else:
+                    self.rtv["rtv"] = "-101"
+            else:
+                self.rtv["rtv"] = "-1"
+        else:
+            self.rtv["rtv"] = "-2"
 
-    def delete_book(self):
-        pass
-
-
-
+    def checkbooks(self):
+        self.rtv["rtv"] = self.findall()
