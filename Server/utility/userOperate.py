@@ -11,10 +11,17 @@ class User(db.Users):
             "rtv": None
         }
 
+    def is_login(self, id):
+        user = self.find("users", "id", id)
+        if user[IS_LOGIN] == "0":
+            return False
+        else:
+            return True
+
     def is_admin(self):
         pass
 
-    def login(self, pwd, id=None, email=None ):
+    def login(self, pwd, id=None, email=None):
         if id:
             ret = self.find("users", "id", id)
             if not ret:
@@ -30,6 +37,7 @@ class User(db.Users):
                 else:
                     if not self.update("users", "is_login", "1", "id", id):
                         self.rtv["rtv"] = '0'
+                        self.rtv["rtv"]["data"] = ret
                         log.log_info("Success by {}".format(id))
                     else:
                         self.rtv["rtv"] = '-101'
@@ -69,14 +77,51 @@ class User(db.Users):
             self.rtv["rtv"] = '-1'
             log.log_error("replicate email address by {}".format(email))
 
-    def logout(self):
-        pass
+    def logout(self, id,):
+        ret = self.find("users", "id", id)
+        if ret:
+            if ret[IS_LOGIN] == "0":
+                self.rtv["rtv"] = "-1"
+            else:
+                if not self.update("users", "is_login", 0, "id", id):
+                    self.rtv["rtv"] = "0"
+                else:
+                    self.rtv["rtv"] = "101"
 
-    def borrow_book(self):
-        pass
+    def borrow_book(self, uid, book_id):
+        book = self.find("books", "id", book_id)
+        user = self.find("users", "id", uid)
+        if self.is_login(uid):
+            if book:
+                if int(book[REMAIN]) >= 1:
+                    if user[TYPE] == "0" or user[TYPE] == "1":
+                        if user[BOOK_ID] == "-1":
+                            self.update("books", "remain", str(int(book[REMAIN]) - 1), "id", book_id)
+                            self.rtv["rtv"] = "0"
+                        else:
+                            self.rtv["rtv"] = "-2"
+                    else:
+                        self.rtv["rtv"] = "-3"
+                else:
+                    self.rtv["rtv"] = "-1"
+            else:
+                self.rtv["rtv"] = "-4"
+        else:
+            self.rtv["rtv"] = "-6"
 
-    def return_book(self):
-        pass
+    def return_book(self, uid, book_id):
+        user = self.find("users", "id", uid)
+        book_id = self.find("books", "id", book_id)
+        if self.is_login(uid):
+            if user[BOOK_ID] != "-1":
+                if self.update("books", "remain", book_id[REMAIN] + 1, "id", book_id):
+                    self.rtv["rtv"] = "0"
+                else:
+                    self.rtv["rtv"] = "-100"
+            else:
+                self.rtv["rtv"] = "-1"
+        else:
+            self.rtv["rtv"] = "-2"
 
     def ban_user(self):
         pass

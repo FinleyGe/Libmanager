@@ -25,7 +25,9 @@ class Server(object):
         else:
             u.rtv["rtv"] = "-2"
             return u.rtv
-    def logout(self):
+
+    def logout(self, data):
+
         pass
 
     def __init__(self):  # 入口
@@ -35,7 +37,12 @@ class Server(object):
         log.log_info("Server is running on {0}:{1}".format(ip_port[0], ip_port[1]))
         loop = asyncio.get_event_loop()
         while True:
-            loop.run_until_complete(self.server())
+            try:
+                loop.run_until_complete(self.server())
+            except Exception as e:
+                log.log_error(e)
+
+
 
     async def server(self):  # 异步
         self.conn, self.addr = self.s.accept()
@@ -43,20 +50,24 @@ class Server(object):
             'rtv': '1'
         }))
         log.log_info("Connect with : {0}:{1}".format(self.addr[0], self.addr[1]))
-        data = do.de_json(self.conn.recv(1024))
-        if data["type"] == 'login':
-            self.conn.send(do.en_json(self.login(data["data"])))
-        elif data["type"] == 'register':
-            self.conn.send(do.en_json(self.register(data["data"])))
-        elif data["type"] == 'logout':
-            self.conn.send(do.en_json(self.logout(data["data"])))
-        elif data["type"] == ""
-        else:  # 错误的操作类型
-            self.conn.send(do.en_json(
-                {
-                    "rtv": "-100"
-                }
-            ))
+        while True:
+            data = do.de_json(self.conn.recv(1024))
+            if data["type"] == 'login':
+                self.conn.send(do.en_json(self.login(data["data"])))
+            elif data["type"] == 'register':
+                self.conn.send(do.en_json(self.register(data["data"])))
+            elif data["type"] == 'logout':
+                self.conn.send(do.en_json(self.logout(data["data"])))
+            elif data["type"] == "close":
+                self.conn.close()
+                return 0
+            else:  # 错误的操作类型
+                self.conn.send(do.en_json(
+                    {
+                        "rtv": "-100"
+                    }
+                ))
+
     def __del__(self):
         log.log_info("Server is closed")
 
