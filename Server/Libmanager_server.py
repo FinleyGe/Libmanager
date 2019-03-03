@@ -25,14 +25,13 @@ class Server(object):
             return u.rtv
 
     def logout(self, data):
-        print(data)
         u = user.User()
         u.logout(data["id"])
         return u.rtv
 
     def borrow_book(self, data):
         u = user.User()
-        u.borrow_book(data["id"], data["book_data"])
+        u.borrow_book(data["id"], data["book_id"])
         return u.rtv
 
     def return_book(self, data):
@@ -60,12 +59,22 @@ class Server(object):
         u.add_new_book(data["id"], data["book_name"], data["book_amount"], data["is_abled"])
         return u.rtv
 
-    def checkbooks(self, data):
+    def checkbooks(self):
         u = user.User()
         u.checkbooks()
         return u.rtv
 
+    def get_user_data(self, data):
+        u = user.User()
+        return {
+            "rtv": u.find("users", "id", data["id"])
+        }
+    def clearlogin(self):
+        u = user.User()
+
+
     def __init__(self):  # 入口
+        self.clearlogin()
         self.s = socket.socket()
         self.s.bind(ip_port)
         self.s.listen(backlog)
@@ -74,13 +83,10 @@ class Server(object):
         log.log_info("Server is running on {0}:{1}".format(ip_port[0], ip_port[1]))
         loop = asyncio.get_event_loop()
         while True:
-            '''
             try:
                 loop.run_until_complete(self.server())
             except Exception as e:
                 log.log_error(e)
-            '''
-            loop.run_until_complete(self.server())
 
     async def server(self):  # 异步
         self.conn, self.addr = self.s.accept()
@@ -90,7 +96,6 @@ class Server(object):
         log.log_info("Connect with : {0}:{1}".format(self.addr[0], self.addr[1]))
         while True:
             data = do.de_json(self.conn.recv(1024))
-            print(data)
             if data["type"] == 'login':
                 self.conn.send(do.en_json(self.login(data["data"])))
             elif data["type"] == 'register':
@@ -110,7 +115,9 @@ class Server(object):
             elif data["type"] == 'add_new_book':
                 self.conn.send(do.en_json(self.add_new_book(data["data"])))
             elif data["type"] == "checkbooks":
-                self.conn.send(do.en_json(self.checkbooks(data["data"])))
+                self.conn.send(do.en_json(self.checkbooks()))
+            elif data["type"] == "get_user_data":
+                self.conn.send(do.en_json(self.get_user_data(data["data"])))
             elif data["type"] == "exit":
                 log.log_info("Disconnect with : {0}:{1}".format(self.addr[0], self.addr[1]))
                 self.conn.close()

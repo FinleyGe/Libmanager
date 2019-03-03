@@ -26,6 +26,16 @@ def md5(data):  # md5加密
 
 class client(object):
 
+    def get_user_data(self):
+        data["type"] = "get_user_data"
+        data["data"] = {
+            "id": self.userdata[0]
+        }
+        self.s.send(en_json(data))
+        rtv = de_json(self.s.recv(1024))
+        self.userdata = rtv["rtv"][0]
+        return self.userdata
+
     def close(self):
         data["data"] = {
             "type": "close"
@@ -58,11 +68,10 @@ class client(object):
             return self.login()
         elif rtv["rtv"] == "-3":
             print("Replicate Login")
-            return 0
+            return -1
         else:
             print("Login Succeed!")
-            self.userdata = rtv["rtv"]
-            print(self.userdata)
+            self.userdata[0] = rtv["rtv"][0]
             return 0
 
     def register(self):
@@ -157,6 +166,7 @@ class client(object):
             rtv = de_json(self.s.recv(1024))["rtv"]
             if rtv == "0":
                 print("Success")
+                self.get_user_data()
                 return 0
             elif rtv == "-1":
                 print("You have nothing to return")
@@ -259,7 +269,7 @@ class client(object):
                 "id": self.userdata[0],
                 "book_amount": amount,
                 "book_name": name,
-                "is_abled":1
+                "is_abled": 1
             }
             self.s.send(en_json(data))
             ret = de_json(self.s.recv(1024))["rtv"]
@@ -278,6 +288,7 @@ class client(object):
 
     def print_detail(self):
         if self.is_login:
+            self.get_user_data()
             print("""
             ID : {0}
             Name: {1}
@@ -294,7 +305,16 @@ class client(object):
         self.s.send(en_json(data))
         ret = de_json(self.s.recv(1024))["rtv"]
         for i in ret:
-            print(i)
+            print(
+                """
+                    *********************************
+                    ID : {0}
+                    Name : {1}
+                    Remain:{2}/{3}
+                    Allowed:{4} (0 for False, 1 for True)
+                    *********************************
+                """.format(i[0], i[1], i[3], i[2], i[4])
+            )
     def __init__(self):
         '''
         ip = input("Server IP:")
@@ -303,7 +323,7 @@ class client(object):
         ip = "127.0.0.1"
         port = 8888
         self.is_login = False
-        self.userdata = None
+        self.userdata = [None]
         self.s = socket.socket()
         self.s.connect((ip, port))
         if de_json(self.s.recv(1024))["rtv"] == "1":
@@ -339,7 +359,9 @@ class client(object):
                 """)
             elif o == "exit":
                 if self.is_login:
+                    data["type"] = "logout"
                     self.logout()
+                data["type"] = "exit"
                 self.close()
                 print("Dicconnect")
                 exit()
@@ -347,6 +369,7 @@ class client(object):
                 rtv = self.login()
                 if rtv == 0:
                     self.is_login = True
+                    self.print_detail()
                     continue
             elif o == "register":
                 rtv = self.register()

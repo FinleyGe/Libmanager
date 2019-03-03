@@ -52,6 +52,13 @@ class Database(object):
         """.format(table, item, value))
         return ret.fetchall()
 
+    def findall_users(self):
+        ret = self.db.execute(
+            """
+                  select * from users
+            """
+        )
+
     def findall(self):
         ret = self.db.execute(
             """
@@ -68,6 +75,11 @@ class Users(Database):
         """, (name, email, pwd, type))
         return ret.fetchall()
 
+    def clear_login(self):
+        ret = self.db.execute("""
+                        update users set is_login = 0
+                """, (name, email, pwd, type))
+        return ret.fetchall()
 
 class Books(Database):
     def insert(self, name, amount, is_abled):

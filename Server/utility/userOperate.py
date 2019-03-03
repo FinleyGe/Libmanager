@@ -108,6 +108,7 @@ class User(db.Users):
                     if user[TYPE] == "0" or user[TYPE] == "1":
                         if user[BORROW_ID] == "-1":
                             self.update("books", "remain", str(int(book[BOOK_REMAIN]) - 1), "id", book_id)
+                            self.update("users", "book_id", book_id, "id", uid)
                             self.rtv["rtv"] = "0"
                         else:
                             self.rtv["rtv"] = "-2"
@@ -124,8 +125,9 @@ class User(db.Users):
         user = self.find("users", "id", uid)[0]
         if self.is_login(uid):
             if user[BORROW_ID] != "-1":
-                book_id = self.find("books", "id", user[BORROW_ID])[0]
-                if self.update("books", "remain", book_id[BOOK_REMAIN] + 1, "id", book_id):
+                book = self.find("books", "id", user[BORROW_ID])[0]
+                if not self.update("books", "remain", str(int(book[BOOK_REMAIN]) + 1), "id", book[BOOK_ID]):
+                    self.update("users", "book_id", "-1", "id", uid)
                     self.rtv["rtv"] = "0"
                 else:
                     self.rtv["rtv"] = "-101"
@@ -200,3 +202,6 @@ class User(db.Users):
 
     def checkbooks(self):
         self.rtv["rtv"] = self.findall()
+
+    def clear_login(self):
+        super(User, self).clear_login()
