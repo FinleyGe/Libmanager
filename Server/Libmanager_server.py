@@ -69,9 +69,9 @@ class Server(object):
         return {
             "rtv": u.find("users", "id", data["id"])
         }
+
     def clearlogin(self):
         u = user.User()
-
 
     def __init__(self):  # 入口
         self.clearlogin()
